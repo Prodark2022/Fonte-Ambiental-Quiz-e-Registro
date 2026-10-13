@@ -1,0 +1,384 @@
+/* ==========================================
+   Variáveis e Configurações Globais
+   ========================================== */
+:root {
+  --cor-primaria: #2e7d32;      /* Verde principal */
+  --cor-primaria-hover: #1b5e20;/* Verde mais escuro para hover */
+  --cor-secundaria: #81c784;    /* Verde claro / destaque */
+  --cor-fundo: #f1f8e9;         /* Fundo levemente esverdeado/pastel */
+  --cor-superficie: #e8f5e9;    /* Fundo dos blocos e cartões */
+  --cor-texto: #333333;         /* Cor principal do texto */
+  --cor-texto-suave: #666666;   /* Texto secundário */
+  --cor-borda: #c8e6c9;         /* Bordas suaves */
+  --raio-borda: 12px;
+  --transicao: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ==========================================
+   Cabeçalho
+   ========================================== */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cabecalho h1 {
+  color: var(--cor-primaria);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cabecalho p {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   Conteúdo Principal e Progresso
+   ========================================== */
+.conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.progresso {
+  background: var(--cor-superficie);
+  padding: 15px 20px;
+  border-radius: var(--raio-borda);
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#contador {
+  display: block;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.barra {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#barra {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background-color: var(--cor-secundaria);
+  border-radius: 10px;
+  transition: width var(--transicao);
+}
+
+/* ==========================================
+   Formulário e Perguntas (Fieldsets)
+   ========================================== */
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#form fieldset {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: border-color var(--transicao);
+}
+
+#form fieldset:hover {
+  border-color: var(--cor-secundaria);
+}
+
+#form legend {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--cor-primaria);
+  margin-bottom: 12px;
+  padding: 0 5px;
+}
+
+#form label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color var(--transicao);
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#form label:hover {
+  background-color: #f1f8e9;
+}
+
+#form input[type="radio"] {
+  margin-right: 8px;
+  accent-color: var(--cor-primaria);
+}
+
+/* ==========================================
+   Botões
+   ========================================== */
+button, #btn-resultado, #btn-refazer {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: var(--raio-borda);
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transicao), transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(46, 125, 50, 0.2);
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+button:hover, #btn-resultado:hover, #btn-refazer:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 3px solid #ffb300;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   Registro de ações sustentáveis
+   ========================================== */
+.acoes-sustentaveis {
+  margin-top: 30px;
+  padding: 24px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.acoes-sustentaveis h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 6px;
+}
+
+.introducao-acoes {
+  color: var(--cor-texto-suave);
+  margin-bottom: 16px;
+}
+
+.botoes-acao {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.botoes-acao .btn-acao {
+  min-height: 58px;
+  margin-top: 0;
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+.painel-impacto,
+.meta-escola,
+.historico-acoes {
+  margin-top: 20px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+}
+
+.painel-impacto h3,
+.historico-acoes h3 {
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.aviso-estimativa,
+.nota-local {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.painel-impacto ul,
+#historico {
+  padding-left: 22px;
+}
+
+.painel-impacto li,
+#historico li {
+  margin-top: 5px;
+}
+
+.painel-impacto li span {
+  font-weight: 600;
+}
+
+.meta-escola progress {
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin: 8px 0;
+  accent-color: var(--cor-primaria);
+}
+
+.acoes-globais {
+  display: flex;
+  justify-content: center;
+  margin: 18px auto 0;
+}
+
+.acoes-globais #botao-reset {
+  width: auto;
+  max-width: 100%;
+  background-color: #795548;
+  font-size: 0.95rem;
+}
+
+.acoes-globais #botao-reset:hover {
+  background-color: #5d4037;
+}
+
+/* ==========================================
+   Secção de Resultados
+   ========================================== */
+#resultado {
+  background: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  outline: none;
+}
+
+#resultado[hidden] {
+  display: none;
+}
+
+#planta-imagem {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 180px;
+  height: auto;
+}
+
+#resultado-titulo {
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+#resultado-nota {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+#resultado-texto {
+  color: var(--cor-texto-suave);
+  margin-bottom: 20px;
+}
+
+/* Desempenho por Área e Dicas */
+#resultado-areas {
+  text-align: left;
+  background: #f9fbe7;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#resultado-areas h3 {
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+#resultado-areas ul, #resultado-dicas {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+#resultado-dicas {
+  background: #fff8e1;
+  padding: 15px 20px 15px 35px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  color: #5d4037;
+}
+
+#resultado-dicas li {
+  margin-bottom: 8px;
+}
+
+/* ==========================================
+   Responsividade (Ecrãs menores)
+   ========================================== */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+  
+  #resultado {
+    padding: 20px 15px;
+  }
+
+  .acoes-sustentaveis {
+    padding: 18px 14px;
+  }
+
+  .botoes-acao {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .botoes-acao .btn-acao {
+    min-height: 48px;
+  }
+
+  .painel-impacto,
+  .meta-escola,
+  .historico-acoes {
+    padding: 14px;
+  }
+}

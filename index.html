@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionário Ambiental</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>Qual é a sua pegada no dia a dia?</h1>
+    <p>Teste seus conhecimentos sobre água, energia, reciclagem, consumo consciente, alimentação, natureza e comunidade.</p>
+  </header>
+
+  <main class="conteudo">
+
+    <noscript>Ative o JavaScript do navegador para responder ao questionário.</noscript>
+
+    <!-- Progresso (o JS preenche o texto e a largura da barra) -->
+    <div class="progresso">
+      <span id="contador" aria-live="polite"></span>
+      <div class="barra"><span id="barra"></span></div>
+    </div>
+
+    <!-- Questionário: o JS cria as perguntas aqui dentro, antes do botão -->
+    <form id="form">
+      <button type="submit" id="btn-resultado">Ver meu resultado</button>
+    </form>
+
+    <!-- Resultado (escondido até o usuário enviar) -->
+    <section id="resultado" hidden tabindex="-1">
+      <img id="planta-imagem" src="assets/semente.png" alt="" width="180" hidden>
+      <h2 id="resultado-titulo"></h2>
+      <p id="resultado-nota"></p>
+      <p id="resultado-texto"></p>
+      <div id="resultado-areas"></div>
+      <ul id="resultado-dicas"></ul>
+      <button type="button" id="btn-refazer">Refazer o questionário</button>
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+<!-- ========== REGISTRO DE AÇÕES SUSTENTÁVEIS ========== -->
+<section class="acoes-sustentaveis" aria-labelledby="titulo-acoes">
+  <h2 id="titulo-acoes">Registre suas ações sustentáveis</h2>
+  <p>Clique nos botões abaixo para registrar uma ação e acompanhar o impacto estimado.</p>
+
+  <!-- Botões de ação (o JS usa .btn-acao e data-acao) -->
+  <div class="botoes-acao">
+    <button type="button" class="btn-acao" data-acao="Separar Residuos">
+      Separar Resíduos
+    </button>
+    <button type="button" class="btn-acao" data-acao="Economizar Energia">
+      Economizar Energia
+    </button>
+    <button type="button" class="btn-acao" data-acao="Fechar a Torneira">
+      Fechar a Torneira
+    </button>
+  </div>
+
+  <!-- Painel de impacto acumulado -->
+  <div class="painel-impacto">
+    <h3>Impacto estimado</h3>
+    <ul>
+      <li>Água economizada: <span id="impacto-agua">0 L</span></li>
+      <li>Energia economizada: <span id="impacto-energia">0 kWh</span></li>
+      <li>Resíduos separados: <span id="impacto-residuos">0 unidades</span></li>
+    </ul>
+  </div>
+
+  <!-- Meta da escola -->
+  <div class="meta-escola">
+    <p id="Meta">Meta da Escola: 0 de 500 ações sustentáveis</p>
+    <progress id="Meta-progress" max="500" value="0"></progress>
+  </div>
+
+  <!-- Histórico de ações -->
+  <div class="historico-acoes">
+    <h3>Histórico de ações</h3>
+    <ul id="historico">
+      <!-- O JS preenche aqui -->
+    </ul>
+  </div>
+</section>
+
+<!-- Botão de reset global (quiz + registros) -->
+<div class="acoes-globais">
+  <button type="button" id="botao-reset">
+    Reiniciar quiz e apagar registros
+  </button>
+</div>
+
+<main class="conteudo">
+  <!-- progresso + formulário do questionário (já existe) -->
+  <!-- seção #resultado (já existe) -->
+
+  <!-- NOVO: bloco de ações sustentáveis (código acima) -->
+  <!-- NOVO: botão #botao-reset -->
+</main>
