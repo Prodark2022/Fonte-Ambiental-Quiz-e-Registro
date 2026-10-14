@@ -28,9 +28,9 @@ body {
 }
 
 .cabecalho {
+  max-width: 800px;
   margin: 0 auto 30px;
   padding: 20px;
-  max-width: 800px;
   text-align: center;
   background: var(--cor-superficie);
   border-radius: var(--raio-borda);
@@ -56,19 +56,12 @@ body {
 }
 
 .quiz-diario,
-.progresso,
-#form fieldset,
-#resultado,
-.acoes-sustentaveis {
-  background: var(--cor-superficie);
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio-borda);
-}
-
-.quiz-diario,
 .acoes-sustentaveis {
   margin-top: 24px;
   padding: 24px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -82,6 +75,14 @@ body {
 #resultado[hidden],
 #planta-imagem[hidden] {
   display: none;
+}
+
+.progresso,
+#form fieldset,
+#resultado {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
 }
 
 .progresso {
@@ -101,7 +102,7 @@ body {
   width: 100%;
   height: 12px;
   overflow: hidden;
-  background-color: #e0e0e0;
+  background: #e0e0e0;
   border-radius: 10px;
 }
 
@@ -109,7 +110,7 @@ body {
   display: block;
   width: 0%;
   height: 100%;
-  background-color: var(--cor-secundaria);
+  background: var(--cor-secundaria);
   border-radius: 10px;
   transition: width var(--transicao);
 }
@@ -146,7 +147,7 @@ body {
 }
 
 #form label:hover {
-  background-color: #f1f8e9;
+  background: #f1f8e9;
 }
 
 #form input[type="radio"] {
@@ -161,18 +162,20 @@ button {
   padding: 14px 24px;
   border: 0;
   border-radius: var(--raio-borda);
-  background-color: var(--cor-primaria);
+  background: var(--cor-primaria);
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(46, 125, 50, 0.2);
-  transition: background-color var(--transicao), transform 0.1s ease;
+  transition:
+    background-color var(--transicao),
+    transform 0.1s ease;
 }
 
 button:hover {
-  background-color: var(--cor-primaria-hover);
+  background: var(--cor-primaria-hover);
 }
 
 button:active {
@@ -238,7 +241,7 @@ button:focus-visible {
 #resultado-areas ul,
 #resultado-dicas {
   padding-left: 20px;
-  list-style-type: disc;
+  list-style: disc;
   text-align: left;
 }
 
@@ -254,18 +257,14 @@ button:focus-visible {
   margin-bottom: 8px;
 }
 
-.introducao-acoes,
-.aviso-estimativa,
-.nota-local {
+.introducao-acoes {
+  margin-bottom: 8px;
   color: var(--cor-texto-suave);
 }
 
-.introducao-acoes {
-  margin-bottom: 8px;
-}
-
 .aviso-estimativa,
 .nota-local {
+  color: var(--cor-texto-suave);
   font-size: 0.9rem;
 }
 
@@ -329,11 +328,11 @@ button:focus-visible {
 .acoes-globais #botao-apagar-registro {
   width: auto;
   max-width: 100%;
-  background-color: var(--cor-exclusao);
+  background: var(--cor-exclusao);
 }
 
 .acoes-globais #botao-apagar-registro:hover {
-  background-color: var(--cor-exclusao-hover);
+  background: var(--cor-exclusao-hover);
 }
 
 @media (max-width: 600px) {

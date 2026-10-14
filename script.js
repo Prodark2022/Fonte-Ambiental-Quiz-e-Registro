@@ -562,10 +562,12 @@ function inicializarQuiz() {     //Processor que incia o quiz no HTML
 
 botaoQuiz();
 
+
   return  function resetarQuiz(){
     form.reset();
     resultadoEl.hidden = true;
     imagemPlanta.hidden = true;
+
 
     resultadoDicas.replaceChildren();
     resultadoAreas.replaceChildren();
@@ -672,62 +674,58 @@ function iniciarRegistroAcoes() {
       listaHistorico.appendChild(item);
     });
   }
+
   
-  function registrarAcao(acao) {
-  const impacto = impactos[acao];
+    function registrarAcao(acao) {
+    const impacto = impactos[acao];
 
-  if (!impacto) {
-    console.error(`Ação sem impacto configurado: ${acao}`);
-    return;
-  }
+    if (!impacto) {
+      console.error(`Ação sem impacto configurado: ${acao}`);
+      return;
+    }
 
-  const horario = Date.now();
-  const janela24h = 24 * 60 * 60 * 1000;
-  const limitePorAcao = 10;
+    const horario = Date.now();
+    const janela24h = 24 * 60 * 60 * 1000;
+    const limitePorAcao = 10;
 
-  const registrosRecentes = registros
-    .filter(
-      (item) =>
-        item.acao === acao &&
-        Number.isFinite(item.registradoEm) &&
-        item.registradoEm > horario - janela24h &&
-        item.registradoEm <= horario
-    )
-    .sort((a, b) => a.registradoEm - b.registradoEm);
+    const registrosRecentes = registros
+      .filter(
+        (item) =>
+          item.acao === acao &&
+          Number.isFinite(item.registradoEm) &&
+          item.registradoEm > horario - janela24h &&
+          item.registradoEm <= horario
+      )
+      .sort((a, b) => a.registradoEm - b.registradoEm);
 
-  if (registrosRecentes.length >= limitePorAcao) {
-    const proximaLiberacao = new Date(
-      registrosRecentes[0].registradoEm + janela24h
-    );
+    if (registrosRecentes.length >= limitePorAcao) {
+      const proximaLiberacao = new Date(
+        registrosRecentes[0].registradoEm + janela24h
+      );
 
-    alert(
-      `Você já registrou essa ação 10 vezes nas últimas 24 horas. ` +
-        `Poderá registrá-la novamente após ${proximaLiberacao.toLocaleString("pt-BR")}.`
-    );
-    return;
-  }
+      alert(
+        `Você já registrou essa ação 10 vezes nas últimas 24 horas. ` +
+          `Poderá registrá-la novamente após ${proximaLiberacao.toLocaleString("pt-BR")}.`
+      );
+      return;
+    }
 
-  const registro = {
-    acao,
-    dataHora: new Date(horario).toLocaleString("pt-BR"),
-    registradoEm: horario,
-  };
-  
-
-    registros.push(registro);
+    registros.push({
+      acao,
+      dataHora: new Date(horario).toLocaleString("pt-BR"),
+      registradoEm: horario,
+    });
 
     atualizarHistorico();
     contarMeta();
     recalcularImpacto();
-
-    console.log("Impacto acumulado (estimado):", impactoTotal);
 
     try {
       localStorage.setItem(chaveRegistros, JSON.stringify(registros));
     } catch (erro) {
       console.error("Não foi possível salvar o registro:", erro);
     }
-  };
+  }
 
   atualizarHistorico();
   contarMeta();
@@ -738,34 +736,33 @@ function iniciarRegistroAcoes() {
       registrarAcao(botao.dataset.acao);
     });
   });
-  return function resetarAcoes() {
 
+  return function resetarAcoes() {
     registros.length = 0;
     atualizarHistorico();
     contarMeta();
     recalcularImpacto();
 
-
     try {
       localStorage.removeItem(chaveRegistros);
-    } catch(erro) {
-      console.error("Não foi possivel apagar os registros salvos.", erro);
+    } catch (erro) {
+      console.error("Não foi possível apagar os registros salvos:", erro);
     }
   };
-};
+}
 
-function iniciarAplicacao(){
+function iniciarAplicacao() {
   inicializarQuiz();
 
   const resetarAcoes = iniciarRegistroAcoes();
   const botaoApagarRegistro = document.querySelector("#botao-apagar-registro");
 
-  if(!botaoApagarRegistro) {
-    throw new Error('Botão de apagar registro não encontrado. ');
+  if (!botaoApagarRegistro) {
+    throw new Error('Botão de apagar registro não encontrado: #botao-apagar-registro.');
   }
-  
+
   botaoApagarRegistro.addEventListener("click", () => {
-    if(!confirm("Gostaria de apagar os registros?")) {
+    if (!confirm("Deseja apagar os registros de ações sustentáveis?")) {
       return;
     }
 
@@ -773,10 +770,8 @@ function iniciarAplicacao(){
   });
 }
 
-if(document.readyState === "loading"){
-  document.addEventListener("DOMContentLoaded", iniciarAplicacao, {
-    once: true,
-  });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", iniciarAplicacao, { once: true });
 } else {
   iniciarAplicacao();
 }
