@@ -1,0 +1,379 @@
+:root {
+  --cor-primaria: #2e7d32;
+  --cor-primaria-hover: #1b5e20;
+  --cor-secundaria: #81c784;
+  --cor-fundo: #f1f8e9;
+  --cor-superficie: #e8f5e9;
+  --cor-texto: #333;
+  --cor-texto-suave: #666;
+  --cor-borda: #c8e6c9;
+  --cor-exclusao: #c62828;
+  --cor-exclusao-hover: #8e0000;
+  --raio-borda: 12px;
+  --transicao: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.cabecalho {
+  margin: 0 auto 30px;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+  background: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cabecalho h1 {
+  margin-bottom: 10px;
+  color: var(--cor-primaria);
+  font-size: 2rem;
+}
+
+.cabecalho p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+}
+
+.conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-diario,
+.progresso,
+#form fieldset,
+#resultado,
+.acoes-sustentaveis {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+}
+
+.quiz-diario,
+.acoes-sustentaveis {
+  margin-top: 24px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-diario > h2,
+.acoes-sustentaveis h2 {
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+}
+
+#quiz-diario[hidden],
+#resultado[hidden],
+#planta-imagem[hidden] {
+  display: none;
+}
+
+.progresso {
+  margin: 20px 0;
+  padding: 15px 20px;
+}
+
+#contador {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.barra {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+#barra {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: var(--cor-secundaria);
+  border-radius: 10px;
+  transition: width var(--transicao);
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#form fieldset {
+  padding: 20px;
+  transition: border-color var(--transicao);
+}
+
+#form fieldset:hover {
+  border-color: var(--cor-secundaria);
+}
+
+#form legend {
+  padding: 0 5px;
+  color: var(--cor-primaria);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+#form label {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#form label:hover {
+  background-color: #f1f8e9;
+}
+
+#form input[type="radio"] {
+  margin-right: 8px;
+  accent-color: var(--cor-primaria);
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-primaria);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(46, 125, 50, 0.2);
+  transition: background-color var(--transicao), transform 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 3px solid #ffb300;
+  outline-offset: 3px;
+}
+
+#btn-quiz {
+  width: auto;
+  min-width: 180px;
+}
+
+#resultado {
+  margin-top: 20px;
+  padding: 30px;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+#planta-imagem {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+#resultado-titulo {
+  margin-bottom: 10px;
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+}
+
+#resultado-nota {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#resultado-texto {
+  margin-bottom: 20px;
+  color: var(--cor-texto-suave);
+}
+
+#resultado-areas {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background: #f9fbe7;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#resultado-areas h3 {
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+}
+
+#resultado-areas ul,
+#resultado-dicas {
+  padding-left: 20px;
+  list-style-type: disc;
+  text-align: left;
+}
+
+#resultado-dicas {
+  margin-bottom: 25px;
+  padding: 15px 20px 15px 35px;
+  background: #fff8e1;
+  border-radius: 8px;
+  color: #5d4037;
+}
+
+#resultado-dicas li {
+  margin-bottom: 8px;
+}
+
+.introducao-acoes,
+.aviso-estimativa,
+.nota-local {
+  color: var(--cor-texto-suave);
+}
+
+.introducao-acoes {
+  margin-bottom: 8px;
+}
+
+.aviso-estimativa,
+.nota-local {
+  font-size: 0.9rem;
+}
+
+.botoes-acao {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.botoes-acao .btn-acao {
+  min-height: 58px;
+  margin-top: 0;
+  padding: 12px 14px;
+}
+
+.painel-impacto,
+.meta-escola,
+.historico-acoes {
+  margin-top: 20px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+}
+
+.painel-impacto h3,
+.historico-acoes h3 {
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+}
+
+.painel-impacto ul,
+#historico {
+  padding-left: 22px;
+}
+
+.painel-impacto li,
+#historico li {
+  margin-top: 5px;
+}
+
+.painel-impacto li span {
+  font-weight: 600;
+}
+
+.meta-escola progress {
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin: 8px 0;
+  accent-color: var(--cor-primaria);
+}
+
+.acoes-globais {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.acoes-globais #botao-apagar-registro {
+  width: auto;
+  max-width: 100%;
+  background-color: var(--cor-exclusao);
+}
+
+.acoes-globais #botao-apagar-registro:hover {
+  background-color: var(--cor-exclusao-hover);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-diario,
+  .acoes-sustentaveis {
+    padding: 18px 14px;
+  }
+
+  #resultado {
+    padding: 20px 15px;
+  }
+
+  .botoes-acao {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .botoes-acao .btn-acao {
+    min-height: 48px;
+  }
+
+  .painel-impacto,
+  .meta-escola,
+  .historico-acoes {
+    padding: 14px;
+  }
+
+  .acoes-globais {
+    justify-content: stretch;
+  }
+
+  .acoes-globais #botao-apagar-registro {
+    width: 100%;
+  }
+}

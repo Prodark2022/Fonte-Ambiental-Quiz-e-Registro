@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionário Ambiental</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <h1>Qual é a sua pegada no dia a dia?</h1>
+    <p>Teste seus conhecimentos sobre água, energia, reciclagem, consumo consciente, alimentação, natureza e comunidade.</p>
+  </header>
+
+  <main class="conteudo">
+    <noscript>Ative o JavaScript do navegador para responder ao questionário.</noscript>
+
+    <section class="quiz-diario" aria-labelledby="titulo-quiz-diario">
+      <h2 id="titulo-quiz-diario">Quiz diário</h2>
+      <button
+        type="button"
+        id="btn-quiz"
+        aria-controls="quiz-diario"
+        aria-expanded="false"
+      >
+        Abrir Quiz diário
+      </button>
+
+      <div id="quiz-diario" hidden>
+        <div class="progresso">
+          <span id="contador" aria-live="polite"></span>
+          <div class="barra">
+            <span id="barra"></span>
+          </div>
+        </div>
+
+        <form id="form">
+          <button type="submit" id="btn-resultado">Ver meu resultado</button>
+        </form>
+
+        <section id="resultado" hidden tabindex="-1">
+          <img
+            id="planta-imagem"
+            src="assets/semente.png"
+            alt=""
+            width="180"
+            hidden
+          >
+          <h2 id="resultado-titulo"></h2>
+          <p id="resultado-nota"></p>
+          <p id="resultado-texto"></p>
+          <div id="resultado-areas"></div>
+          <ul id="resultado-dicas"></ul>
+          <button type="button" id="btn-refazer">Refazer o questionário</button>
+        </section>
+      </div>
+    </section>
+
+    <section class="acoes-sustentaveis" aria-labelledby="titulo-acoes">
+      <h2 id="titulo-acoes">Registre suas ações sustentáveis</h2>
+      <p class="introducao-acoes">
+        Registre suas ações e acompanhe os impactos estimados.
+      </p>
+      <p class="aviso-estimativa">
+        Os impactos exibidos são estimativas ilustrativas por ação, não medições reais.
+      </p>
+
+      <div class="botoes-acao">
+        <button type="button" class="btn-acao" data-acao="Separar Residuos">
+          Separar Resíduos
+        </button>
+        <button type="button" class="btn-acao" data-acao="Economizar Energia">
+          Economizar Energia
+        </button>
+        <button type="button" class="btn-acao" data-acao="Fechar a Torneira">
+          Fechar a Torneira
+        </button>
+      </div>
+
+      <div class="painel-impacto">
+        <h3>Impacto estimado</h3>
+        <ul>
+          <li>Água economizada: <span id="impacto-agua">0 L</span></li>
+          <li>Energia economizada: <span id="impacto-energia">0 kWh</span></li>
+          <li>Resíduos separados: <span id="impacto-residuos">0 unidades</span></li>
+        </ul>
+      </div>
+
+      <div class="meta-escola">
+        <p id="Meta">Meta da Escola: 0 de 500 ações sustentáveis</p>
+        <progress id="Meta-progress" max="500" value="0"></progress>
+        <p class="nota-local">
+          O progresso é armazenado neste navegador e não é compartilhado entre dispositivos.
+        </p>
+      </div>
+
+      <div class="historico-acoes">
+        <h3>Histórico de ações</h3>
+        <ul id="historico"></ul>
+      </div>
+
+      <div class="acoes-globais">
+        <button type="button" id="botao-apagar-registro">
+          Apagar registros
+        </button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
