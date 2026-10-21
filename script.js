@@ -337,7 +337,7 @@ function inicializarQuiz() {     //Processor que incia o quiz no HTML
   if (!imagemPlanta) {
     imagemPlanta = document.createElement("img");
     imagemPlanta.id = "planta-imagem";
-    imagemPlanta.hidden = true;
+    imagemPlanta.hidden = true; 
     resultadoEl.insertBefore(imagemPlanta, resultadoEl.firstChild);
   }
 
@@ -621,7 +621,7 @@ function iniciarRegistroAcoes() {
   function contarMeta() {
     const quantidadeMeta = Math.min(registros.length, valorMeta);
 
-    textoMeta.textContent = `Meta da Escola: ${quantidadeMeta} de ${valorMeta} ações sustentáveis`;
+    textoMeta.textContent = `Meta Individual: ${quantidadeMeta} de ${valorMeta} ações sustentáveis`;
 
     barraMeta.max = valorMeta;
     barraMeta.value = quantidadeMeta;
